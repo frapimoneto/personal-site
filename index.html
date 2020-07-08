@@ -7,8 +7,9 @@
   <title>Francisco Pinto Moreira Neto</title>
   <link href="https://fonts.googleapis.com/css2?family=Saira+Extra+Condensed:wght@400;500;700&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="./styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
+
 </head>
 
 <body>
@@ -22,20 +23,54 @@
         </div>
 
         <div class="menu">
-          <a class="selected" href="#">Sobre</a>
-          <a href="#">Experiência</a>
-          <a href="#">Educação</a>
+          <a class="selected" href="#" onclick="mostrarAtivo(this)">Sobre</a>
+          <a href="#experience">Experiência</a>
+          <a href="#education">Educação</a>
         </div>
       </div>
 
     </div>
 
-    <div class="content">
+    <div class="about">
       <section class="description">
         <h2>Francisco <span>Pinto</span></h2>
         <h3>DIVINÓPOLIS, MINAS GERAIS · <span>FRAPIMONETO@GMAIL.COM</span></h3>
         <p>Sou estudante do curso de Engenharia da Computação na Universidade do Estado de Minas Gerais (UEMG) e
-          estudante do bootcamp GoStack na rocketseat. Sou desenvolvedor fullstack com as tecnologias React, Node e React Native.❤🚀
+          estudante do bootcamp GoStack na rocketseat. Sou desenvolvedor fullstack com as tecnologias React, Node e
+          React Native.❤🚀
+        </p>
+        <div class="icons-social">
+          <a href="https://github.com/frapimoneto"><i class="fab fa-github"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+        </div>
+      </section>
+    </div>
+
+    <div class="experience" id="experience">
+      <section class="companies">
+        <h2>Experiência Porfissional</h2>
+        <section class="company">
+          <h3>CIBERCODE EDUCAÇÃO E TECNOLOGIA · <span>DIVINÓPOLIS</span> · <span>2019</span></h3>
+          <p>Atuação como desenvolvedor web e instrutor de informática para crianças e adolescentes.👩‍💻🐱‍🏍</p>
+          <p>HTML, CSS, WORDPRESS, C, PYTHON</p>
+        </section>
+        <section class="company">
+          <h3>BOOST TECNOLOGIA · <span>DIVINÓPOLIS</span> · <span>2017-2019</span></h3>
+          <p>Atuação como desenvolvedor e diretor presidente. 🤵👩‍💻💲</p>
+          <p>HTML, CSS, WORDPRESS</p>
+        </section>
+      </section>
+    </div>
+
+
+    <div class="education" id="education">
+      <section class="description">
+        <h2>Francisco <span>Pinto</span></h2>
+        <h3>DIVINÓPOLIS, MINAS GERAIS · <span>FRAPIMONETO@GMAIL.COM</span></h3>
+        <p>Sou estudante do curso de Engenharia da Computação na Universidade do Estado de Minas Gerais (UEMG) e
+          estudante do bootcamp GoStack na rocketseat. Sou desenvolvedor fullstack com as tecnologias React, Node e
+          React Native.❤🚀
         </p>
         <div class="icons-social">
           <a href="https://github.com/frapimoneto"><i class="fab fa-github"></i></a>
