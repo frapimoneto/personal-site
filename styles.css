@@ -20,6 +20,90 @@ html, body {
   background-color: #512679;
 }
 
+@media screen and (max-width: 700px){
+  .sidebar {
+    width: 100% !important;
+    height: 25%;
+    position: absolute; 
+    background-color: #512679; 
+    
+  }
+  .sidebar-pos {
+    display: flex !important;
+    /* flex-direction: row !important; */
+    justify-content: center !important;
+    align-items: center !important;
+    margin-left: 20%;
+  }
+
+  .img-sidebar img{
+    width: 50% !important;
+  }
+
+  .menu {
+    visibility: collapse !important;
+  }
+
+  .about {
+    /* display: flex !important; */
+    left: 10% !important;
+    padding-top: 45% !important;
+    justify-content: center !important;
+    text-align: justify;
+  }
+
+  .experience {
+    left: 10% !important;
+    top: 105% !important;
+    /* padding-top: 75% !important; */
+    justify-content: center !important;
+    /* text-align: justify; */
+  }
+
+  .education {
+    left: 10% !important;
+    /* padding-top: 75% !important; */
+    top: 195% !important;
+    justify-content: center !important;
+    /* text-align: justify; */
+  }
+
+  .portfolio {
+    left: 10% !important;
+    top: 390% !important;
+    /* padding-top: 75% !important; */
+    justify-content: center !important;
+    /* text-align: justify; */
+    overflow-y: unset !important;
+  }
+
+  section.projects h4 {
+    visibility: collapse !important;
+  }
+  
+  section.projects h5 {
+    visibility: collapse !important;
+  }
+
+  .portfolio-content .projects {
+    display: flex !important;
+    flex-direction: column !important;
+    
+  }
+
+  .portfolio-content {
+    top: 0% !important;
+  }
+
+  .project {
+    margin: 0px 0px !important;
+  }
+
+  .portfolio-content h2 {
+    padding-bottom: 25px;
+  }
+}
+
 .sidebar-pos {
   position: absolute;
   top: 50%;
@@ -179,7 +263,7 @@ section.companies p {
 }
 
 .projects {
-  display: inline-grid !important;
+  display: inline-grid;
   grid-template-columns: auto auto auto;
 }
 
