@@ -20,6 +20,69 @@ html, body {
   background-color: #512679;
 }
 
+.language-switch {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  justify-content: center !important;
+}
+
+.language-switch .switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+}
+
+.language-switch .switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.language-switch .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #906ab4;
+  transition: .4s;
+  border-radius: 34px;
+}
+
+.language-switch .slider:before {
+  position: absolute;
+  content: "";
+  height: 12px;
+  width: 12px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+.language-switch input:checked + .slider {
+  background-color: #c197e8;
+}
+
+.language-switch input:checked + .slider:before {
+  transform: translateX(12px);
+}
+
+.language-switch span {
+  /* display: flex !important; */
+  color: white;
+  font-size: 18px;
+  margin-left: 10px;
+  opacity: 0.4;
+  display: block;
+  text-decoration: none;
+  justify-content: center !important;
+}
+
 @media screen and (max-width: 700px){
   .sidebar {
     width: 100% !important;
@@ -37,7 +100,7 @@ html, body {
   }
 
   .img-sidebar img{
-    width: 50% !important;
+    visibility: hidden;
   }
 
   .menu {

@@ -5,11 +5,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Francisco Pinto Moreira Neto</title>
-  <link href="https://fonts.googleapis.com/css2?family=Saira+Extra+Condensed:wght@400;500;700&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Saira+Extra+Condensed:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
-
 </head>
 
 <body>
@@ -23,26 +21,32 @@
         </div>
 
         <div class="menu">
-          <a class="selected" href="#" onclick="mostrarAtivo(this)">Sobre</a>
-          <a href="#experience">Experiência</a>
-          <a href="#education">Educação</a>
-          <a href="#portfolio">Portifólio</a>
+          <a class="selected" href="#" onclick="mostrarAtivo(this)" data-pt="Sobre" data-en="About">Sobre</a>
+          <a href="#experience" data-pt="Experiência" data-en="Experience">Experiência</a>
+          <a href="#education" data-pt="Educação" data-en="Education">Educação</a>
+          <a href="#portfolio" data-pt="Portfólio" data-en="Portfolio">Portfólio</a>
+        </div>
+
+        <div class="language-switch">
+          <span id="languageLabel">Português</span>
+          <label class="switch">
+            <input type="checkbox" id="languageToggle">
+            <span class="slider round"></span>
+          </label>
+          <span id="languageLabel">English</span>
         </div>
       </div>
-
     </div>
 
     <div class="about">
       <section class="description">
-        <h2>Francisco <span>Pinto</span></h2>
-        <h3>DIVINÓPOLIS, MINAS GERAIS · <span>FRAPIMONETO@GMAIL.COM</span></h3>
-        <p>Sou estudante do curso de Engenharia da Computação na Universidade do Estado de Minas Gerais (UEMG) e
-          estudante do bootcamp GoStack na rocketseat. Sou desenvolvedor fullstack com as tecnologias React, Node e
-          React Native.❤🚀
+        <h2 data-pt="Francisco <span>Pinto</span>" data-en="Francisco <span>Pinto</span>">Francisco <span>Pinto</span></h2>
+        <h3 data-pt="DIVINÓPOLIS, MINAS GERAIS · <span>FRAPIMONETO@GMAIL.COM</span>" data-en="DIVINÓPOLIS, MINAS GERAIS · <span>FRAPIMONETO@GMAIL.COM</span>">DIVINÓPOLIS, MINAS GERAIS · <span>FRAPIMONETO@GMAIL.COM</span></h3>
+        <p data-pt="Sou estudante do curso de Engenharia da Computação na Universidade do Estado de Minas Gerais (UEMG) e estudante do bootcamp GoStack na rocketseat. Sou desenvolvedor fullstack com as tecnologias React, Node e React Native.❤🚀" data-en="I am a Computer Engineering student at the State University of Minas Gerais (UEMG) and a GoStack bootcamp student at Rocketseat. I am a fullstack developer with React, Node, and React Native technologies.❤🚀">
+          Sou estudante do curso de Engenharia da Computação na Universidade do Estado de Minas Gerais (UEMG) e estudante do bootcamp GoStack na rocketseat. Sou desenvolvedor fullstack com as tecnologias React, Node e React Native.❤🚀
         </p>
         <div class="icons-social">
           <a href="https://github.com/frapimoneto"><i class="fab fa-github"></i></a>
-          <a href="https://www.instagram.com/frapimoneto"><i class="fab fa-instagram"></i></a>
           <a href="https://www.linkedin.com/in/francisco-pinto-moreira-neto-1b194619b"><i class="fab fa-linkedin"></i></a>
         </div>
       </section>
@@ -50,73 +54,75 @@
 
     <div class="experience" id="experience">
       <section class="companies">
-        <h2>Experiência Profissional</h2>
+        <h2 data-pt="Experiência Profissional" data-en="Professional Experience">Experiência Profissional</h2>
         <section class="company">
-          <h3>CIBERCODE EDUCAÇÃO E TECNOLOGIA · <span>DIVINÓPOLIS</span> · <span>2019</span></h3>
-          <p>Atuação como desenvolvedor web e instrutor de informática para crianças e adolescentes.👩‍💻🐱‍🏍</p>
+          <h3 data-pt="CIBERCODE EDUCAÇÃO E TECNOLOGIA · <span>DIVINÓPOLIS</span> · <span>2019</span>" data-en="CIBERCODE EDUCATION AND TECHNOLOGY · <span>DIVINÓPOLIS</span> · <span>2019</span>">CIBERCODE EDUCAÇÃO E TECNOLOGIA · <span>DIVINÓPOLIS</span> · <span>2019</span></h3>
+          <p data-pt="Atuação como desenvolvedor web e instrutor de informática para crianças e adolescentes.👩‍💻🐱‍🏍" data-en="Worked as a web developer and computer science instructor for children and teenagers.👩‍💻🐱‍🏍">
+            Atuação como desenvolvedor web e instrutor de informática para crianças e adolescentes.👩‍💻🐱‍🏍
+          </p>
           <p>HTML, CSS, WORDPRESS, C, PYTHON</p>
         </section>
         <section class="company">
-          <h3>BOOST TECNOLOGIA · <span>DIVINÓPOLIS</span> · <span>2017-2019</span></h3>
-          <p>Atuação como desenvolvedor e diretor presidente. 🤵👩‍💻💲</p>
+          <h3 data-pt="BOOST TECNOLOGIA · <span>DIVINÓPOLIS</span> · <span>2017-2019</span>" data-en="BOOST TECHNOLOGY · <span>DIVINÓPOLIS</span> · <span>2017-2019</span>">BOOST TECNOLOGIA · <span>DIVINÓPOLIS</span> · <span>2017-2019</span></h3>
+          <p data-pt="Atuação como desenvolvedor e diretor presidente. 🤵👩‍💻💲" data-en="Worked as a developer and president director. 🤵👩‍💻💲">Atuação como desenvolvedor e diretor presidente. 🤵👩‍💻💲</p>
           <p>HTML, CSS, WORDPRESS</p>
         </section>
         <section class="company">
-          <h3>FIND TECNOLOGIA · <span>DIVINÓPOLIS</span> · <span>2020-2021</span></h3>
-          <p>Atuação como desenvolvedor mobile Flutter. 👩‍💻📱</p>
+          <h3 data-pt="FIND TECNOLOGIA · <span>DIVINÓPOLIS</span> · <span>2020-2021</span>" data-en="FIND TECHNOLOGY · <span>DIVINÓPOLIS</span> · <span>2020-2021</span>">FIND TECNOLOGIA · <span>DIVINÓPOLIS</span> · <span>2020-2021</span></h3>
+          <p data-pt="Atuação como desenvolvedor mobile Flutter. 👩‍💻📱" data-en="Worked as a Flutter mobile developer. 👩‍💻📱">Atuação como desenvolvedor mobile Flutter. 👩‍💻📱</p>
           <p>Flutter</p>
         </section>
         <section class="company">
-          <h3>STONE · <span>RIO DE JANEIRO</span> · <span>2021-ATUAL</span></h3>
-          <p>Atuação como desenvolvedor mobile swift. 👩‍💻📱</p>
-          <p>Swift</p>
+          <h3 data-pt="STONE · <span>RIO DE JANEIRO</span> · <span>2021-ATUAL</span>" data-en="STONE · <span>RIO DE JANEIRO</span> · <span>2021-CURRENT</span>">STONE · <span>RIO DE JANEIRO</span> · <span>2021-ATUAL</span></h3>
+          <p data-pt="Atuação como desenvolvedor mobile swift. 👩‍💻📱" data-en="Worked as a Swift mobile developer. 👩‍💻📱">Atuação como desenvolvedor mobile swift. 👩‍💻📱</p>
+          <p>Swift, Android, KMP (Kotlin Multi Platform)</p>
         </section>
       </section>
     </div>
 
-
     <div class="education" id="education">
       <section class="description">
-        <h2>Educação</span></h2>
+        <h2 data-pt="Educação" data-en="Education">Educação</h2>
         <section class="company">
-          <h3>ENGENHARIA DA COMPUTAÇÃO · <span>UEMG DIVINÓPOLIS</span> · <span>9° PERÍODO</span></h3>
-          <!-- <p>HTML, CSS, WORDPRESS, C, PYTHON</p> -->
+          <h3 data-pt="ENGENHARIA DA COMPUTAÇÃO · <span>UEMG DIVINÓPOLIS</span> · <span>9° PERÍODO</span>" data-en="COMPUTER ENGINEERING · <span>UEMG DIVINÓPOLIS</span> · <span>9th TERM</span>">ENGENHARIA DA COMPUTAÇÃO · <span>UEMG DIVINÓPOLIS</span> · <span>9° PERÍODO</span></h3>
         </section>
         <section class="company">
-          <h3>TÉCNICO EM ELETROMECÂNICA · <span>CEFET MG</span> · <span>2016</span></h3>
+          <h3 data-pt="TÉCNICO EM ELETROMECÂNICA · <span>CEFET MG</span> · <span>2016</span>" data-en="TECHNICIAN IN ELECTROMECHANICS · <span>CEFET MG</span> · <span>2016</span>">TÉCNICO EM ELETROMECÂNICA · <span>CEFET MG</span> · <span>2016</span></h3>
         </section>
         <section class="company">
-          <h3>BOOTCAMP GOSTACK · <span>ROCKETSEAT</span> · <span>2020</span></h3>
+          <h3 data-pt="BOOTCAMP GOSTACK · <span>ROCKETSEAT</span> · <span>2020</span>" data-en="GOSTACK BOOTCAMP · <span>ROCKETSEAT</span> · <span>2020</span>">BOOTCAMP GOSTACK · <span>ROCKETSEAT</span> · <span>2020</span></h3>
         </section>
       </section>
     </div>
 
     <div class="portfolio" id="portfolio">
       <section class="portfolio-content">
-        <h2>Portifólio</h2>
+        <h2 data-pt="Portfólio" data-en="Portfolio">Portfólio</h2>
         <section class="projects">
           <section class="project">
             <img src="./assets/beTheHero.PNG" alt="beTheHero">
             <h3>Be The Hero</h3>
-            <h4>Aplicação desenvolvida na Semana Oministack 11.</h4>
+            <h4 data-pt="Aplicação desenvolvida na Semana Oministack 11." data-en="Application developed during Semana Oministack 11.">Aplicação desenvolvida na Semana Oministack 11.</h4>
             <h5>NODE - REACT - REACT NATIVE</h5>
           </section>
           <section class="project">
-            <img src="./assets/cibercode.png" alt="beTheHero">
+            <img src="./assets/cibercode.png" alt="CiberCode">
             <h3>Site CiberCode</h3>
-            <h4>Site desenvolvido como landing page da escola de programação e robótica CiberCode.</h4>
+            <h4 data-pt="Site desenvolvido como landing page da escola de programação e robótica CiberCode." data-en="Website developed as a landing page for the CiberCode programming and robotics school.">Site desenvolvido como landing page da escola de programação e robótica CiberCode.</h4>
             <h5>HTML - CSS - WORDPRESS - PHP</h5>
           </section>
           <section class="project">
-            <img src="./assets/cefet.png" alt="beTheHero">
+            <img src="./assets/cefet.png" alt="GATu">
             <h3>GATu</h3>
-            <h4>Aplicação desenvolvida para gerenciamento de agenda de turma utilizada no CEFET-MG.</h4>
+            <h4 data-pt="Aplicação desenvolvida para gerenciamento de agenda de turma utilizada no CEFET-MG." data-en="Application developed for class schedule management used at CEFET-MG.">Aplicação desenvolvida para gerenciamento de agenda de turma utilizada no CEFET-MG.</h4>
             <h5>NODE - REACT - FLUTTER</h5>
           </section>
         </section>
       </section>
     </div>
   </div>
+
+  <script src="./script.js"></script>
 </body>
 
 </html>
