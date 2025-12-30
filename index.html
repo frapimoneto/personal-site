@@ -1,131 +1,1012 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Francisco Pinto Moreira Neto</title>
-  <link href="https://fonts.googleapis.com/css2?family=Saira+Extra+Condensed:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./styles.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Francisco Neto – Senior iOS & Mobile Developer</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+        Ubuntu, Cantarell, sans-serif;
+      line-height: 1.6;
+      color: #111827;
+      background: #f9fafb;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* Navbar */
+    .navbar {
+      background: #ffffff;
+      padding: 1rem 5%;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .nav-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #4f46e5;
+      letter-spacing: 0.03em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.75rem;
+      list-style: none;
+      font-size: 0.95rem;
+      color: #4b5563;
+    }
+
+    .nav-links a {
+      position: relative;
+      padding-bottom: 0.2rem;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background: #4f46e5;
+      transition: width 0.25s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    /* Hero */
+    .hero {
+      margin-top: 80px;
+      padding: 4.5rem 5% 4rem;
+      background: radial-gradient(circle at top left, #4f46e5 0, #1f2937 55%);
+      color: #ffffff;
+    }
+
+    .hero-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.25rem 0.75rem;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 1rem;
+    }
+
+    .hero-tag-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: #22c55e;
+    }
+
+    .hero h1 {
+      font-size: 2.75rem;
+      line-height: 1.1;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1.1rem;
+      opacity: 0.9;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-meta {
+      font-size: 0.95rem;
+      opacity: 0.85;
+      margin-bottom: 1.75rem;
+    }
+
+    .hero-meta strong {
+      font-weight: 600;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 1.75rem;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.8rem 1.5rem;
+      border-radius: 999px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease,
+        background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .btn-primary {
+      background: #ffffff;
+      color: #4f46e5;
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.35);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 15px 35px rgba(15, 23, 42, 0.45);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: #e5e7eb;
+      border-color: rgba(229, 231, 235, 0.3);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(15, 23, 42, 0.8);
+      border-color: rgba(229, 231, 235, 0.45);
+    }
+
+    .hero-skills-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      opacity: 0.65;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .skill-pill {
+      padding: 0.3rem 0.75rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      background: rgba(15, 23, 42, 0.75);
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      color: #e5e7eb;
+    }
+
+    .hero-card {
+      background: rgba(15, 23, 42, 0.75);
+      border-radius: 1.5rem;
+      padding: 1.75rem;
+      box-shadow: 0 25px 60px rgba(15, 23, 42, 0.7);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+    }
+
+    .hero-card-title {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #9ca3af;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-card-metric {
+      display: flex;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .metric-item span:first-child {
+      display: block;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #e5e7eb;
+    }
+
+    .metric-item span:last-child {
+      font-size: 0.8rem;
+      color: #9ca3af;
+    }
+
+    .hero-card-list {
+      list-style: none;
+      font-size: 0.9rem;
+      color: #e5e7eb;
+    }
+
+    .hero-card-list li {
+      margin-bottom: 0.45rem;
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .hero-card-list li::before {
+      content: "•";
+      color: #4ade80;
+    }
+
+    /* Sections */
+    .section {
+      padding: 4rem 5%;
+    }
+
+    .section-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      margin-bottom: 2rem;
+    }
+
+    .section-kicker {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: #6b7280;
+      margin-bottom: 0.35rem;
+    }
+
+    .section-title {
+      font-size: 1.75rem;
+      color: #111827;
+      margin-bottom: 0.4rem;
+    }
+
+    .section-subtitle {
+      font-size: 0.98rem;
+      color: #6b7280;
+      max-width: 550px;
+    }
+
+    /* About / What I Do */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .feature-card {
+      background: #ffffff;
+      padding: 1.75rem;
+      border-radius: 1rem;
+      border: 1px solid #e5e7eb;
+      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.04);
+      transition: transform 0.18s ease, box-shadow 0.18s ease,
+        border-color 0.18s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 35px rgba(15, 23, 42, 0.08);
+      border-color: #c7d2fe;
+    }
+
+    .feature-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 999px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #eef2ff;
+      color: #4f46e5;
+      font-size: 1.1rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .feature-title {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+      color: #111827;
+    }
+
+    .feature-text {
+      font-size: 0.92rem;
+      color: #4b5563;
+      margin-bottom: 0.6rem;
+    }
+
+    .feature-meta {
+      font-size: 0.8rem;
+      color: #6b7280;
+    }
+
+    /* Experience */
+    .experience-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .exp-card {
+      background: #ffffff;
+      padding: 1.6rem 1.5rem;
+      border-radius: 1rem;
+      border: 1px solid #e5e7eb;
+    }
+
+    .exp-role {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #111827;
+      margin-bottom: 0.15rem;
+    }
+
+    .exp-company {
+      font-size: 0.9rem;
+      color: #4f46e5;
+      margin-bottom: 0.15rem;
+    }
+
+    .exp-meta {
+      font-size: 0.8rem;
+      color: #6b7280;
+      margin-bottom: 0.6rem;
+    }
+
+    .exp-desc {
+      font-size: 0.9rem;
+      color: #4b5563;
+    }
+
+    .exp-desc li {
+      margin-left: 1rem;
+      margin-bottom: 0.3rem;
+    }
+
+    /* Skills */
+    .skills-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .skill-chip {
+      padding: 0.35rem 0.8rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      background: #eff6ff;
+      color: #1d4ed8;
+      border: 1px solid #bfdbfe;
+    }
+
+    /* Projects */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .project-card {
+      background: #ffffff;
+      padding: 1.5rem;
+      border-radius: 1rem;
+      border: 1px solid #e5e7eb;
+    }
+
+    .project-title {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.35rem;
+      color: #111827;
+    }
+
+    .project-meta {
+      font-size: 0.8rem;
+      color: #6b7280;
+      margin-bottom: 0.4rem;
+    }
+
+    .project-desc {
+      font-size: 0.9rem;
+      color: #4b5563;
+      margin-bottom: 0.35rem;
+    }
+
+    .project-link {
+      font-size: 0.85rem;
+      color: #4f46e5;
+      font-weight: 500;
+    }
+
+    /* Testimonials */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .testimonial-card {
+      background: #ffffff;
+      padding: 1.5rem 1.5rem 1.4rem;
+      border-radius: 1rem;
+      border: 1px solid #e5e7eb;
+      position: relative;
+    }
+
+    .testimonial-quote {
+      font-size: 2.5rem;
+      color: #e5e7eb;
+      position: absolute;
+      top: 0.9rem;
+      right: 1.2rem;
+      pointer-events: none;
+    }
+
+    .testimonial-text {
+      font-size: 0.9rem;
+      color: #4b5563;
+      margin-bottom: 0.9rem;
+    }
+
+    .testimonial-author {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #111827;
+    }
+
+    .testimonial-role {
+      font-size: 0.8rem;
+      color: #6b7280;
+    }
+
+    /* Contact */
+    .contact-card {
+      background: #111827;
+      color: #e5e7eb;
+      border-radius: 1.5rem;
+      padding: 2rem 2rem 1.8rem;
+      display: grid;
+      grid-template-columns: minmax(0, 2.5fr) minmax(0, 1.5fr);
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .contact-title {
+      font-size: 1.4rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-text {
+      font-size: 0.95rem;
+      color: #d1d5db;
+      margin-bottom: 1rem;
+    }
+
+    .contact-meta {
+      font-size: 0.85rem;
+      color: #9ca3af;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+
+    .contact-link {
+      padding: 0.5rem 0.9rem;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      border: 1px solid #4b5563;
+      color: #e5e7eb;
+      transition: background 0.18s ease, border-color 0.18s ease;
+    }
+
+    .contact-link:hover {
+      background: #1f2937;
+      border-color: #9ca3af;
+    }
+
+    /* Footer */
+    .footer {
+      background: #f3f4f6;
+      color: #6b7280;
+      text-align: center;
+      padding: 1.5rem 5%;
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 900px) {
+      .hero-inner {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero-card {
+        margin-top: 0.5rem;
+      }
+
+      .contact-card {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero h1 {
+        font-size: 2.1rem;
+      }
+    }
+  </style>
 </head>
-
 <body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-content">
+      <div class="logo">Francisco Neto</div>
+      <ul class="nav-links">
+        <li><a href="#about">What I Do</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
 
-  <div class="parent">
-    <div class="sidebar">
-
-      <div class="sidebar-pos">
-        <div class="img-sidebar">
-          <img src="./assets/profile.jpeg" alt="profile">
+  <!-- Hero -->
+  <header class="hero" id="home">
+    <div class="hero-inner">
+      <div>
+        <div class="hero-tag">
+          <span class="hero-tag-dot"></span>
+          <span>Senior iOS & Mobile Developer</span>
         </div>
-
-        <div class="menu">
-          <a class="selected" href="#" onclick="mostrarAtivo(this)" data-pt="Sobre" data-en="About">Sobre</a>
-          <a href="#experience" data-pt="Experiência" data-en="Experience">Experiência</a>
-          <a href="#education" data-pt="Educação" data-en="Education">Educação</a>
-          <a href="#portfolio" data-pt="Portfólio" data-en="Portfolio">Portfólio</a>
+        <h1>Building reliable mobile experiences for fintech and beyond.</h1>
+        <p class="hero-subtitle">
+          Senior iOS developer at Revenu (via Opah IT), with over 5 years of
+          experience delivering production-ready mobile apps using UIKit,
+          SwiftUI, Kotlin, and Kotlin Multiplatform.
+        </p>
+        <p class="hero-meta">
+          <strong>Location:</strong> Divinópolis, Minas Gerais, Brazil ·
+          <strong>Industry:</strong> Fintech, IT Services, Education
+        </p>
+        <div class="hero-actions">
+          <a
+            href="https://www.linkedin.com/in/frapimoneto/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-primary"
+          >
+            View LinkedIn Profile
+          </a>
+          <a
+            href="https://github.com/frapimoneto"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-secondary"
+          >
+            View GitHub
+          </a>
         </div>
+        <div>
+          <div class="hero-skills-label">Core technologies</div>
+          <div class="hero-skills">
+            <span class="skill-pill">iOS · Swift · SwiftUI · UIKit</span>
+            <span class="skill-pill">Kotlin · Kotlin Multiplatform (KMP)</span>
+            <span class="skill-pill">Flutter</span>
+            <span class="skill-pill">React Native</span>
+            <span class="skill-pill">Node.js · React</span>
+          </div>
+        </div>
+      </div>
 
-        <div class="language-switch">
-          <span id="languageLabel">Português</span>
-          <label class="switch">
-            <input type="checkbox" id="languageToggle">
-            <span class="slider round"></span>
-          </label>
-          <span id="languageLabel">English</span>
+      <aside class="hero-card">
+        <div class="hero-card-title">Profile snapshot</div>
+        <div class="hero-card-metric">
+          <div class="metric-item">
+            <span>5+ yrs</span>
+            <span>Mobile development</span>
+          </div>
+          <div class="metric-item">
+            <span>Fintech</span>
+            <span>Stone, Revenu & others</span>
+          </div>
+        </div>
+        <ul class="hero-card-list">
+          <li>
+            Strong background in native iOS with Swift, SwiftUI, and UIKit.
+          </li>
+          <li>
+            Production experience with Kotlin and Kotlin Multiplatform in
+            high-traffic apps.
+          </li>
+          <li>
+            Past roles in Flutter and fullstack development (Node.js, React,
+            React Native).
+          </li>
+          <li>
+            Experience with experimentation and analytics (Amplitude Experiment)
+            to improve UX.
+          </li>
+          <li>
+            Known for ownership, mentoring, and helping teammates grow, as
+            highlighted in recommendations.
+          </li>
+        </ul>
+      </aside>
+    </div>
+  </header>
+
+  <!-- What I Do / About -->
+  <section class="section" id="about">
+    <div class="section-inner">
+      <div class="section-header">
+        <div class="section-kicker">What I do</div>
+        <h2 class="section-title">End-to-end mobile delivery</h2>
+        <p class="section-subtitle">
+          I design, implement, and maintain mobile applications that handle real
+          users and real money — with a strong focus on performance,
+          reliability, and user experience.
+        </p>
+      </div>
+
+      <div class="features-grid">
+        <article class="feature-card">
+          <div class="feature-icon">📱</div>
+          <h3 class="feature-title">Native iOS development</h3>
+          <p class="feature-text">
+            Extensive experience building and evolving iOS apps using Swift,
+            SwiftUI, and UIKit. I have taken part in key feature deliveries for
+            card experiences and financial products.
+          </p>
+          <p class="feature-meta">
+            Recent work includes the iOS experience for
+            <strong>Revenu</strong> and card flows at
+            <strong>Stone</strong>.
+          </p>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-icon">🔁</div>
+          <h3 class="feature-title">Kotlin & KMP integration</h3>
+          <p class="feature-text">
+            Hands-on experience integrating Kotlin Multiplatform code into iOS
+            apps, balancing shared business logic with native UI to keep
+            performance and UX at a high level.
+          </p>
+          <p class="feature-meta">
+            Worked with Kotlin Multiplatform in production, focusing on
+            scalability and maintainability.
+          </p>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-icon">🤝</div>
+          <h3 class="feature-title">Collaboration & mentoring</h3>
+          <p class="feature-text">
+            From teaching programming and robotics to mentoring new engineers on
+            teams, I enjoy helping others grow and keeping collaboration at the
+            center of how we ship software.
+          </p>
+          <p class="feature-meta">
+            Former <strong>IT Instructor</strong> at CiberCode and
+            collaborator on multiple team projects.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section class="section" id="experience">
+    <div class="section-inner">
+      <div class="section-header">
+        <div class="section-kicker">Experience</div>
+        <h2 class="section-title">Professional background</h2>
+        <p class="section-subtitle">
+          A mix of fintech, consulting, and education, with a consistent focus
+          on mobile development and high-quality delivery.
+        </p>
+      </div>
+
+      <div class="experience-grid">
+        <article class="exp-card">
+          <h3 class="exp-role">Senior iOS Developer</h3>
+          <div class="exp-company">Revenu · via Opah IT</div>
+          <div class="exp-meta">2025 – Present · Remote · Brazil</div>
+          <ul class="exp-desc">
+            <li>
+              Building and maintaining iOS features for Revenu, focusing on
+              performance, usability, and reliability.
+            </li>
+            <li>
+              Using Swift, SwiftUI, UIKit, and Kotlin/KMP to integrate shared
+              modules where it makes sense.
+            </li>
+          </ul>
+        </article>
+
+        <article class="exp-card">
+          <h3 class="exp-role">Senior App Developer</h3>
+          <div class="exp-company">act digital</div>
+          <div class="exp-meta">2025 · Brazil</div>
+          <ul class="exp-desc">
+            <li>
+              Senior position in engineering, contributing to mobile solutions
+              for enterprise clients.
+            </li>
+            <li>
+              Focused on code quality, architecture, and team collaboration in
+              demanding environments.
+            </li>
+          </ul>
+        </article>
+
+        <article class="exp-card">
+          <h3 class="exp-role">iOS Developer</h3>
+          <div class="exp-company">Stone</div>
+          <div class="exp-meta">2021 – 2025 · Rio de Janeiro, Brazil</div>
+          <ul class="exp-desc">
+            <li>
+              Actively contributed to all front-end deliveries related to card
+              experiences, including the migration from V1 to V2 and V3.
+            </li>
+            <li>
+              Developed features mainly for card flows using Kotlin and Swift,
+              integrating shared logic via Kotlin Multiplatform.
+            </li>
+            <li>
+              Worked on UX experiments using Amplitude Experiment to improve
+              user experience based on data.
+            </li>
+          </ul>
+        </article>
+
+        <article class="exp-card">
+          <h3 class="exp-role">Flutter Developer</h3>
+          <div class="exp-company">Find Soluções Corporativa Ltda</div>
+          <div class="exp-meta">2020 – 2021 · Divinópolis, Brazil</div>
+          <ul class="exp-desc">
+            <li>
+              Developed and maintained mobile applications using Flutter,
+              focusing on performance and usability.
+            </li>
+            <li>
+              Performed testing and debugging to ensure quality and reliability
+              of deliveries.
+            </li>
+          </ul>
+        </article>
+
+        <article class="exp-card">
+          <h3 class="exp-role">IT Instructor</h3>
+          <div class="exp-company">CiberCode</div>
+          <div class="exp-meta">2019 · Divinópolis, Brazil</div>
+          <ul class="exp-desc">
+            <li>
+              Created and delivered classes introducing programming and
+              robotics.
+            </li>
+            <li>
+              Taught programming in languages such as Python and C, guiding
+              students through practical projects.
+            </li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="section-header">
+        <div class="section-kicker">Skills</div>
+        <h2 class="section-title">Technologies & tools</h2>
+        <p class="section-subtitle">
+          A toolbox focused on mobile development, with experience across
+          fullstack JavaScript and teaching as well.
+        </p>
+      </div>
+
+      <div class="skills-wrap">
+        <span class="skill-chip">Swift · SwiftUI · UIKit</span>
+        <span class="skill-chip">iOS architecture & patterns</span>
+        <span class="skill-chip">Kotlin · Kotlin Multiplatform (KMP)</span>
+        <span class="skill-chip">Flutter</span>
+        <span class="skill-chip">React Native</span>
+        <span class="skill-chip">Node.js · Express</span>
+        <span class="skill-chip">React</span>
+        <span class="skill-chip">Git & GitHub</span>
+        <span class="skill-chip">Amplitude Experiment</span>
+        <span class="skill-chip">Agile & cross-functional teams</span>
+        <span class="skill-chip">Mentoring & teaching</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section class="section" id="projects">
+    <div class="section-inner">
+      <div class="section-header">
+        <div class="section-kicker">GitHub</div>
+        <h2 class="section-title">Selected projects</h2>
+        <p class="section-subtitle">
+          A few repositories that reflect my learning journey and hands-on work
+          with mobile and fullstack technologies.
+        </p>
+      </div>
+
+      <div class="projects-grid">
+        <article class="project-card">
+          <h3 class="project-title">Nubank Clone – React Native</h3>
+          <div class="project-meta">React Native · UI Clone</div>
+          <p class="project-desc">
+            A clone of the Nubank app created with React Native, focusing on
+            reproducing the look and feel of a real-world banking experience.
+          </p>
+          <a
+            href="https://github.com/frapimoneto/NubankClone---ReactNative"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="project-link"
+          >
+            View on GitHub
+          </a>
+        </article>
+
+        <article class="project-card">
+          <h3 class="project-title">GoStack Bootcamp Challenges</h3>
+          <div class="project-meta">Node.js · React · React Native</div>
+          <p class="project-desc">
+            Several repositories from Rocketseat's GoStack bootcamp, including
+            backend APIs, React frontends, and React Native concepts.
+          </p>
+          <a
+            href="https://github.com/frapimoneto"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="project-link"
+          >
+            Browse GoStack repos
+          </a>
+        </article>
+
+        <article class="project-card">
+          <h3 class="project-title">Backend with Node</h3>
+          <div class="project-meta">Node.js · REST APIs</div>
+          <p class="project-desc">
+            Backend services built with Node.js as part of Rocketseat training,
+            exploring REST APIs, business rules, and integration with frontends.
+          </p>
+          <a
+            href="https://github.com/frapimoneto/backend-com-node"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="project-link"
+          >
+            View on GitHub
+          </a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="section-header">
+        <div class="section-kicker">Recommendations</div>
+        <h2 class="section-title">What people say</h2>
+        <p class="section-subtitle">
+          Feedback from people who studied and worked with me, emphasizing
+          technical quality, ownership, and collaboration.
+        </p>
+      </div>
+
+      <div class="testimonials-grid">
+        <article class="testimonial-card">
+          <div class="testimonial-quote">“</div>
+          <p class="testimonial-text">
+            Francisco is a highly dedicated professional with a strong sense of
+            responsibility and ownership. He consistently meets deadlines, cares
+            deeply about the quality of his work, and pays attention to the
+            details that make a real difference. Beyond his technical skills, he
+            brings empathy and a genuine interest in helping colleagues grow.
+          </p>
+          <div class="testimonial-author">Fabiana Reis</div>
+          <div class="testimonial-role">
+            Colleague in college and on multiple projects
+          </div>
+        </article>
+
+        <article class="testimonial-card">
+          <div class="testimonial-quote">“</div>
+          <p class="testimonial-text">
+            From my first day at Stone, Francisco played a key role in helping
+            me adapt to the new environment. He was always available for pair
+            programming sessions and for digging into complex bugs. His technical
+            skills in Swift and iOS, combined with his supportive attitude, make
+            him an invaluable teammate.
+          </p>
+          <div class="testimonial-author">Yago Augusto</div>
+          <div class="testimonial-role">iOS Engineer & former colleague at Stone</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="section" id="contact">
+    <div class="section-inner">
+      <div class="contact-card">
+        <div>
+          <h2 class="contact-title">Let’s build something great together.</h2>
+          <p class="contact-text">
+            If you are looking for someone to help you ship solid mobile
+            products — especially in fintech or complex domains — feel free to
+            reach out. I’m always open to good conversations about iOS, Kotlin
+            Multiplatform, and mobile architecture.
+          </p>
+          <p class="contact-meta">
+            Based in Divinópolis, Minas Gerais, Brazil · Available for remote
+            collaboration.
+          </p>
+        </div>
+        <div>
+          <div class="contact-links">
+            <a
+              href="https://www.linkedin.com/in/frapimoneto/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="contact-link"
+            >
+              Connect on LinkedIn
+            </a>
+            <a
+              href="https://github.com/frapimoneto"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="contact-link"
+            >
+              Follow on GitHub
+            </a>
+          </div>
         </div>
       </div>
     </div>
+  </section>
 
-    <div class="about">
-      <section class="description">
-        <h2 data-pt="Francisco <span>Pinto</span>" data-en="Francisco <span>Pinto</span>">Francisco <span>Pinto</span></h2>
-        <h3 data-pt="DIVINÓPOLIS, MINAS GERAIS · <span>FRAPIMONETO@GMAIL.COM</span>" data-en="DIVINÓPOLIS, MINAS GERAIS · <span>FRAPIMONETO@GMAIL.COM</span>">DIVINÓPOLIS, MINAS GERAIS · <span>FRAPIMONETO@GMAIL.COM</span></h3>
-        <p data-pt="Sou Engenheiro da Computação formado pela Universidade do Estado de Minas Gerais (UEMG). Sou desenvolvedor fullstack com as tecnologias React, Node e React Native. Atualmente sou desenvolvedor mobile com Swift, Android e KMP (Kotlin multi plataforma) ❤ 🚀" 
-        data-en="I am a Computer Engineer graduated from the State University of Minas Gerais (UEMG). I'm a fullstack developer using React, Node and React Native technologies. I am currently a mobile developer with Swift, Android and KMP (Kotlin multi-platform) ❤ 🚀">
-          Sou Engenheiro da Computação formado pela Universidade do Estado de Minas Gerais (UEMG). 
-          Sou desenvolvedor fullstack com as tecnologias React, Node e React Native. Atualmente sou 
-          desenvolvedor mobile com Swift, Android e KMP (Kotlin multi plataforma) ❤ 🚀
-        </p>
-        <div class="icons-social">
-          <a href="https://github.com/frapimoneto"><i class="fab fa-github"></i></a>
-          <a href="https://www.linkedin.com/in/francisco-pinto-moreira-neto-1b194619b"><i class="fab fa-linkedin"></i></a>
-        </div>
-      </section>
-    </div>
-
-    <div class="experience" id="experience">
-      <section class="companies">
-        <h2 data-pt="Experiência Profissional" data-en="Professional Experience">Experiência Profissional</h2>
-        <section class="company">
-          <h3 data-pt="CIBERCODE EDUCAÇÃO E TECNOLOGIA · <span>DIVINÓPOLIS</span> · <span>2019</span>" data-en="CIBERCODE EDUCATION AND TECHNOLOGY · <span>DIVINÓPOLIS</span> · <span>2019</span>">CIBERCODE EDUCAÇÃO E TECNOLOGIA · <span>DIVINÓPOLIS</span> · <span>2019</span></h3>
-          <p data-pt="Atuação como desenvolvedor web e instrutor de informática para crianças e adolescentes.👩‍💻🐱‍🏍" data-en="Worked as a web developer and computer science instructor for children and teenagers.👩‍💻🐱‍🏍">
-            Atuação como desenvolvedor web e instrutor de informática para crianças e adolescentes.👩‍💻🐱‍🏍
-          </p>
-          <p>HTML, CSS, WORDPRESS, C, PYTHON</p>
-        </section>
-        <section class="company">
-          <h3 data-pt="BOOST TECNOLOGIA · <span>DIVINÓPOLIS</span> · <span>2017-2019</span>" data-en="BOOST TECHNOLOGY · <span>DIVINÓPOLIS</span> · <span>2017-2019</span>">BOOST TECNOLOGIA · <span>DIVINÓPOLIS</span> · <span>2017-2019</span></h3>
-          <p data-pt="Atuação como desenvolvedor e diretor presidente. 🤵👩‍💻💲" data-en="Worked as a developer and president director. 🤵👩‍💻💲">Atuação como desenvolvedor e diretor presidente. 🤵👩‍💻💲</p>
-          <p>HTML, CSS, WORDPRESS</p>
-        </section>
-        <section class="company">
-          <h3 data-pt="FIND TECNOLOGIA · <span>DIVINÓPOLIS</span> · <span>2020-2021</span>" data-en="FIND TECHNOLOGY · <span>DIVINÓPOLIS</span> · <span>2020-2021</span>">FIND TECNOLOGIA · <span>DIVINÓPOLIS</span> · <span>2020-2021</span></h3>
-          <p data-pt="Atuação como desenvolvedor mobile Flutter. 👩‍💻📱" data-en="Worked as a Flutter mobile developer. 👩‍💻📱">Atuação como desenvolvedor mobile Flutter. 👩‍💻📱</p>
-          <p>Flutter</p>
-        </section>
-        <section class="company">
-          <h3 data-pt="STONE · <span>RIO DE JANEIRO</span> · <span>2021-ATUAL</span>" data-en="STONE · <span>RIO DE JANEIRO</span> · <span>2021-CURRENT</span>">STONE · <span>RIO DE JANEIRO</span> · <span>2021-ATUAL</span></h3>
-          <p data-pt="Atuação como desenvolvedor mobile swift. 👩‍💻📱" data-en="Worked as a Swift mobile developer. 👩‍💻📱">Atuação como desenvolvedor mobile swift. 👩‍💻📱</p>
-          <p>Swift, Android, KMP (Kotlin Multi Platform)</p>
-        </section>
-      </section>
-    </div>
-
-    <div class="education" id="education">
-      <section class="description">
-        <h2 data-pt="Educação" data-en="Education">Educação</h2>
-        <section class="company">
-          <h3 data-pt="ENGENHARIA DA COMPUTAÇÃO · <span>UEMG DIVINÓPOLIS</span> · <span>2022</span>" data-en="COMPUTER ENGINEERING · <span>UEMG DIVINÓPOLIS</span> · <span>2022</span>">ENGENHARIA DA COMPUTAÇÃO · <span>UEMG DIVINÓPOLIS</span> · <span>2022</span></h3>
-        </section>
-        <section class="company">
-          <h3 data-pt="TÉCNICO EM ELETROMECÂNICA · <span>CEFET MG</span> · <span>2016</span>" data-en="TECHNICIAN IN ELECTROMECHANICS · <span>CEFET MG</span> · <span>2016</span>">TÉCNICO EM ELETROMECÂNICA · <span>CEFET MG</span> · <span>2016</span></h3>
-        </section>
-        <section class="company">
-          <h3 data-pt="BOOTCAMP GOSTACK · <span>ROCKETSEAT</span> · <span>2020</span>" data-en="GOSTACK BOOTCAMP · <span>ROCKETSEAT</span> · <span>2020</span>">BOOTCAMP GOSTACK · <span>ROCKETSEAT</span> · <span>2020</span></h3>
-        </section>
-      </section>
-    </div>
-
-    <div class="portfolio" id="portfolio">
-      <section class="portfolio-content">
-        <h2 data-pt="Portfólio" data-en="Portfolio">Portfólio</h2>
-        <section class="projects">
-          <section class="project">
-            <img src="./assets/beTheHero.PNG" alt="beTheHero">
-            <h3>Be The Hero</h3>
-            <h4 data-pt="Aplicação desenvolvida na Semana Oministack 11." data-en="Application developed during Semana Oministack 11.">Aplicação desenvolvida na Semana Oministack 11.</h4>
-            <h5>NODE - REACT - REACT NATIVE</h5>
-          </section>
-          <section class="project">
-            <img src="./assets/cibercode.png" alt="CiberCode">
-            <h3>Site CiberCode</h3>
-            <h4 data-pt="Site desenvolvido como landing page da escola de programação e robótica CiberCode." data-en="Website developed as a landing page for the CiberCode programming and robotics school.">Site desenvolvido como landing page da escola de programação e robótica CiberCode.</h4>
-            <h5>HTML - CSS - WORDPRESS - PHP</h5>
-          </section>
-          <section class="project">
-            <img src="./assets/cefet.png" alt="GATu">
-            <h3>GATu</h3>
-            <h4 data-pt="Aplicação desenvolvida para gerenciamento de agenda de turma utilizada no CEFET-MG." data-en="Application developed for class schedule management used at CEFET-MG.">Aplicação desenvolvida para gerenciamento de agenda de turma utilizada no CEFET-MG.</h4>
-            <h5>NODE - REACT - FLUTTER</h5>
-          </section>
-        </section>
-      </section>
-    </div>
-  </div>
-
-  <script src="./script.js"></script>
+  <!-- Footer -->
+  <footer class="footer">
+    © 2025 Francisco Pinto Moreira Neto. All rights reserved.
+  </footer>
 </body>
-
 </html>
